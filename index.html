@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlust & Co. - Experiências Inesquecíveis</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts (Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              900: '#134e4a',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .hero-gradient {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
+    }
+  </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Header / Navigation -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+            W
+          </div>
+          <span class="text-xl font-extrabold tracking-tight">Wanderlust<span class="text-brand-500">.</span></span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+          <a href="#destinos" class="hover:text-brand-500 transition-colors">Destinos</a>
+          <a href="#sobre" class="hover:text-brand-500 transition-colors">Sobre Nós</a>
+          <a href="#depoimentos" class="hover:text-brand-500 transition-colors">Depoimentos</a>
+          <a href="#contato" class="hover:text-brand-500 transition-colors">Contato</a>
+        </nav>
+
+        <!-- CTA Action Buttons -->
+        <div class="hidden md:flex items-center gap-4">
+          <button onclick="openModal('loginModal')" class="text-sm font-semibold hover:text-brand-500 transition-colors px-3 py-2">
+            Entrar
+          </button>
+          <a href="#destinos" class="bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all">
+            Explorar Viagens
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="md:hidden text-2xl p-2 focus:outline-none" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+      <a href="#destinos" class="block py-2 text-slate-200 hover:text-brand-500 font-medium">Destinos</a>
+      <a href="#sobre" class="block py-2 text-slate-200 hover:text-brand-500 font-medium">Sobre Nós</a>
+      <a href="#depoimentos" class="block py-2 text-slate-200 hover:text-brand-500 font-medium">Depoimentos</a>
+      <a href="#contato" class="block py-2 text-slate-200 hover:text-brand-500 font-medium">Contato</a>
+      <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+        <button onclick="openModal('loginModal')" class="w-full text-center py-2 text-slate-200 font-semibold border border-slate-700 rounded-lg">
+          Entrar
+        </button>
+        <a href="#destinos" class="w-full text-center bg-brand-500 text-white py-2.5 rounded-lg font-semibold shadow-md">
+          Explorar Viagens
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80" alt="Praia Paradisíaca" class="w-full h-full object-cover object-center scale-105 animate-pulse-slow">
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white space-y-8 my-12">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold tracking-wide uppercase text-brand-100">
+        <i class="fa-solid fa-compass text-brand-500"></i> Descubra o Extraordinário
+      </span>
+
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-none">
+        Sua próxima grande história começa <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-100 via-brand-500 to-teal-200">aqui.</span>
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto font-light leading-relaxed">
+        Curadoria exclusiva de destinos exóticos, luxo sustentável e roteiros personalizados para transformar suas férias em memórias perpétuas.
+      </p>
+
+      <!-- Search Bar Floating Widget -->
+      <div class="bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl sm:rounded-full shadow-2xl max-w-4xl mx-auto text-slate-800 grid grid-cols-1 sm:grid-cols-4 gap-3 items-center border border-white/30">
+        
+        <div class="px-4 py-2 text-left sm:border-r border-slate-200">
+          <label class="block text-xs font-bold uppercase text-slate-400">Destino</label>
+          <div class="flex items-center gap-2 mt-1">
+            <i class="fa-solid fa-location-dot text-brand-500"></i>
+            <input type="text" id="searchDest" placeholder="Para onde vai?" class="w-full bg-transparent text-sm font-semibold focus:outline-none placeholder-slate-400">
+          </div>
+        </div>
+
+        <div class="px-4 py-2 text-left sm:border-r border-slate-200">
+          <label class="block text-xs font-bold uppercase text-slate-400">Quando</label>
+          <div class="flex items-center gap-2 mt-1">
+            <i class="fa-solid fa-calendar-days text-brand-500"></i>
+            <input type="text" placeholder="Escolha a data" onfocus="(this.type='date')" class="w-full bg-transparent text-sm font-semibold focus:outline-none text-slate-600">
+          </div>
+        </div>
+
+        <div class="px-4 py-2 text-left">
+          <label class="block text-xs font-bold uppercase text-slate-400">Viajantes</label>
+          <div class="flex items-center gap-2 mt-1">
+            <i class="fa-solid fa-user-group text-brand-500"></i>
+            <select class="w-full bg-transparent text-sm font-semibold focus:outline-none text-slate-600">
+              <option>1 Pessoa</option>
+              <option selected>2 Pessoas</option>
+              <option>4+ Pessoas</option>
+            </select>
+          </div>
+        </div>
+
+        <button onclick="handleSearch()" class="w-full h-12 bg-brand-500 hover:bg-brand-600 text-white font-bold rounded-xl sm:rounded-full flex items-center justify-center gap-2 shadow-lg shadow-brand-500/30 transition-all hover:scale-105">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>Buscar</span>
+        </button>
+
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto text-slate-300">
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">12k+</p>
+          <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Viajantes Felizes</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">85+</p>
+          <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Países Cobertos</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">4.9/5</p>
+          <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Avaliação Média</p>
+        </div>
+        <div>
+          <p class="text-2xl sm:text-3xl font-extrabold text-white">100%</p>
+          <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Suporte 24/7</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Destinations Section -->
+  <section id="destinos" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <span class="text-brand-600 text-sm font-bold tracking-widest uppercase">Explore por Categoria</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Destinos em Destaque</h2>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap gap-2 bg-slate-200/60 p-1.5 rounded-2xl w-fit">
+        <button onclick="filterDestinations('all')" class="filter-btn active px-4 py-2 rounded-xl text-sm font-semibold transition-all bg-white text-slate-900 shadow-sm" data-category="all">Todos</button>
+        <button onclick="filterDestinations('praia')" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:text-slate-900" data-category="praia">Praias</button>
+        <button onclick="filterDestinations('montanha')" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:text-slate-900" data-category="montanha">Montanhas</button>
+        <button onclick="filterDestinations('urbano')" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all text-slate-600 hover:text-slate-900" data-category="urbano">Cidades</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="destinationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1 -->
+      <div class="dest-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="praia">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80" alt="Maldivas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-800 flex items-center gap-1">
+            <i class="fa-solid fa-star text-amber-400"></i> 4.9 (128)
+          </div>
+          <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-white hover:text-rose-500 transition-colors">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2">
+              <span><i class="fa-solid fa-location-dot text-brand-500 mr-1"></i> Maldivas</span>
+              <span>7 Dias</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Atol de Baa & Bangalôs</h3>
+            <p class="text-slate-500 text-sm mt-2 line-clamp-2">Nade com raias manta e desfrute de um bangalô privativo sobre águas cristalinas.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-slate-400 font-medium block">A partir de</span>
+              <span class="text-xl font-extrabold text-slate-900">R$ 12.400</span>
+            </div>
+            <button onclick="openBookingModal('Atol de Baa & Bangalôs')" class="bg-slate-900 hover:bg-brand-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors">
+              Reservar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="dest-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="montanha">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=800&q=80" alt="Suíça" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-800 flex items-center gap-1">
+            <i class="fa-solid fa-star text-amber-400"></i> 4.8 (95)
+          </div>
+          <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-white hover:text-rose-500 transition-colors">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2">
+              <span><i class="fa-solid fa-location-dot text-brand-500 mr-1"></i> Alpes Suíços</span>
+              <span>5 Dias</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Zermatt & Matterhorn</h3>
+            <p class="text-slate-500 text-sm mt-2 line-clamp-2">Esqui de classe mundial, vilas de montanha charmosas e passeios de trem panorâmicos.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-slate-400 font-medium block">A partir de</span>
+              <span class="text-xl font-extrabold text-slate-900">R$ 9.800</span>
+            </div>
+            <button onclick="openBookingModal('Zermatt & Matterhorn')" class="bg-slate-900 hover:bg-brand-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors">
+              Reservar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="dest-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="urbano">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="Tóquio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-slate-800 flex items-center gap-1">
+            <i class="fa-solid fa-star text-amber-400"></i> 5.0 (210)
+          </div>
+          <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/40 text-white backdrop-blur-md flex items-center justify-center hover:bg-white hover:text-rose-500 transition-colors">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2">
+              <span><i class="fa-solid fa-location-dot text-brand-500 mr-1"></i> Japão</span>
+              <span>10 Dias</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Luzes & Tradição de Tóquio</h3>
+            <p class="text-slate-500 text-sm mt-2 line-clamp-2">Explore arranha-céus futuristas, templos milenares e a melhor gastronomia do mundo.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-slate-400 font-medium block">A partir de</span>
+              <span class="text-xl font-extrabold text-slate-900">R$ 15.200</span>
+            </div>
+            <button onclick="openBookingModal('Luzes & Tradição de Tóquio')" class="bg-slate-900 hover:bg-brand-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors">
+              Reservar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="dest-card group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-2xl transition-all duration-300 flex flex-col" data-category="praia">
+        <div class="relative h-64 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80" alt="Santorini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-
